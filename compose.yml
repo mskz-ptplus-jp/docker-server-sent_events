@@ -1,0 +1,13 @@
+services:
+  server:
+    build: ./server
+    ports:
+      - "3000:3000"
+  client:
+    build: ./client
+    volumes:
+      - ./client/html:/usr/share/nginx/html
+    ports:
+      - "8080:80"
+    depends_on:
+      - server

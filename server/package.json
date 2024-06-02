@@ -1,0 +1,15 @@
+{
+  "name": "sse-server",
+  "version": "1.0.0",
+  "description": "SSE server example",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "uuid": "^8.3.2"
+  }
+}

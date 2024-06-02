@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSE Client</title>
+</head>
+<body>
+  <h1>Server-Sent Events Example</h1>
+  <div id="events"></div>
+
+  <script>
+    const eventSource = new EventSource('/events');
+    eventSource.onmessage = function(event) {
+      const newElement = document.createElement("div");
+      newElement.innerHTML = event.data;
+      document.getElementById('events').appendChild(newElement);
+    };
+
+    eventSource.addEventListener('close', function(event) {
+      eventSource.close();
+      const newElement = document.createElement("div");
+      newElement.innerHTML = "Connection closed by server.";
+      document.getElementById('events').appendChild(newElement);
+    });
+  </script>
+</body>
+</html>
